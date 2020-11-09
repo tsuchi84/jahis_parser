@@ -1,0 +1,329 @@
+{
+  "version": "JAHISTC07",
+  "patient_info": {
+    "name": "鈴木 太郎",
+    "gender": 1,
+    "birthday": "S330303",
+    "zip_code": "105-0004",
+    "address": "東京都港区新橋1 丁 目 1 番 ○ × ビ ル 5階",
+    "phone_number": "03-1234-123",
+    "emergency_contact": "鈴 木 花 子 03-2345-2345",
+    "blood_type": "Ｂ＋",
+    "body_weight": 63.7,
+    "name_kana": "ｽｽﾞｷ ﾀﾛｳ"
+  },
+  "patient_note": [
+    {
+      "type": 1,
+      "content": "乳製品",
+      "author": 1
+    },
+    {
+      "type": 2,
+      "content": "セフェム系（発熱）",
+      "author": 1
+    },
+    {
+      "type": 3,
+      "content": "狭心症（2011年〜）",
+      "author": 1
+    },
+    {
+      "type": 9,
+      "content": "嚥下困難",
+      "author": 1
+    }
+  ],
+  "otc_drug": [
+    {
+      "name": "ﾊﾞﾌｧﾘﾝ",
+      "started_on": "R020406",
+      "ended_on": "R020409",
+      "author": 2
+    }
+  ],
+  "memo": [
+    {
+      "content": "予防接種を受けた",
+      "entried_on": "H280411",
+      "author": 2
+    }
+  ],
+  "dispensing_info": [
+    {
+      "dispensed_on": {
+        "date": "R020410",
+        "author": 1
+      },
+      "dispensing_facility": {
+        "name": "株式会社 工業会薬局 駅前店",
+        "prefecture": 13,
+        "score_table": 4,
+        "code": 1234567,
+        "zip_code": "105-0004",
+        "address": "東京都港区新橋 1 丁目 11 番 ○×ビル 5 階",
+        "phone_number": "03-3456-3456",
+        "author": 1
+      },
+      "dispensing_doctor_pharmacist": {
+        "name": "工業会 次郎",
+        "contact": "03-4567-4567",
+        "author": 1
+      },
+      "prescription_facility": {
+        "name": "医療法人 工業会病院",
+        "prefecture": 13,
+        "score_table": 1,
+        "code": 1234567,
+        "author": 1
+      },
+      "prescription": [
+        {
+          "doctor": {
+            "doctor_name": "工業会 次郎",
+            "department_name": "内科",
+            "author": 1
+          },
+          "recipe": [
+            {
+              "number": 1,
+              "medicine": [
+                {
+                  "name": "ｺﾘｵﾊﾟﾝｶﾌﾟｾﾙ5mg",
+                  "dose": 6,
+                  "unit": "Ｃ",
+                  "code_type": 2,
+                  "code": 620004992,
+                  "author": 1,
+                  "supplement": [
+                    {
+                      "content": "朝：３Ｃ、昼：２Ｃ、夕：１Ｃ",
+                      "author": 1
+                    }
+                  ],
+                  "dose_caution": [
+                    {
+                      "content": "グレープフルーツジュースと一緒に飲まないでください。効き目が強くなることがあります",
+                      "author": 1
+                    }
+                  ]
+                },
+                {
+                  "name": "ﾌｪﾛﾍﾞﾘﾝ配合錠",
+                  "dose": 6,
+                  "unit": "錠",
+                  "code_type": 2,
+                  "code": 620425801,
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": "【分３ 毎食後服用】",
+                "dispensing_quantity": 5,
+                "dispensing_unit": "日分",
+                "dosage_form_code": 1,
+                "code_type": 1,
+                "code": null,
+                "supplement": [
+                  {
+                    "content": "ＲＰ１服用後",
+                    "author": 1
+                  },
+                  {
+                    "content": "一包化",
+                    "author": 1
+                  }
+                ]
+              },
+              "dose_caution": [
+                {
+                  "content": "飲みやすいように混合して一包化しています。",
+                  "author": 1
+                },
+                {
+                  "content": "車の運転は控えてください。",
+                  "author": 1
+                }
+              ]
+            },
+            {
+              "number": 2,
+              "medicine": [
+                {
+                  "name": "ｱﾄﾞｿﾙﾋﾞﾝ原末",
+                  "dose": 1.5,
+                  "unit": "g",
+                  "code_type": "2,",
+                  "code": 620008284,
+                  "author": 1
+                },
+                {
+                  "name": "(局)ﾀﾝﾅﾙﾋﾞﾝ「ﾎｴｲ」",
+                  "dose": 1.5,
+                  "unit": "g",
+                  "medicine_code_type": "2,",
+                  "medicine_code": 612310013,
+                  "author": 1
+                },
+                {
+                  "name": "ﾚﾍﾞﾆﾝ散",
+                  "dose": 2,
+                  "unit": "g",
+                  "code_type": "2,",
+                  "code": 620007148,
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": "【分３ 毎食後服用】",
+                "dispensing_quantity": 5,
+                "dispensing_unit": "日分",
+                "dosage_form_code": 1,
+                "code_type": 1,
+                "code": null,
+                "author": 1
+              }
+            },
+            {
+              "number": 3,
+              "medicine": [
+                {
+                  "name": "ｲｿｼﾞﾝｶﾞｰｸﾞﾙ液7%",
+                  "dose": 60,
+                  "unit": "ml",
+                  "code_type": "2,",
+                  "code": 620008969,
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": "【１日３〜４回 うがい】",
+                "dispensing_quantity": 1,
+                "dispensing_unit": "調剤",
+                "dosage_form_code": 5,
+                "code_type": 1,
+                "code": null,
+                "author": 1
+              }
+            },
+            {
+              "number": 4,
+              "medicine": [
+                {
+                  "name": "ﾉﾎﾞﾗﾋﾟｯﾄﾞ注 ﾍﾟﾝﾌｨﾙ 300単位",
+                  "dose": 2,
+                  "unit": "筒",
+                  "code_type": "2,",
+                  "code": 620008894,
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": "【１日２回 朝14単位 夕6単位】",
+                "dispensing_quantity": 1,
+                "dispensing_unit": "調剤",
+                "dosage_form_code": 4,
+                "code_type": 1,
+                "code": null,
+                "author": 1
+              }
+            },
+            {
+              "number": 5,
+              "medicine": [
+                {
+                  "name": "ﾍﾟﾝﾆｰﾄﾞﾙ30G/8mm(ﾉﾎﾞ)",
+                  "dose": 60,
+                  "unit": "本",
+                  "code_type": "2,",
+                  "code": 710010093,
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": null,
+                "dispensing_quantity": 1,
+                "dispensing_unit": "調剤",
+                "dosage_form_code": 9,
+                "code_type": 1,
+                "code": null,
+                "author": 1
+              }
+            }
+          ]
+        },
+        {
+          "doctor": {
+            "doctor_name": "佐藤 三郎",
+            "department_name": "皮膚科",
+            "author": 1
+          },
+          "rp": [
+            {
+              "number": 6,
+              "medicine": [
+                {
+                  "name": "ﾘﾝﾃﾞﾛﾝ-VG軟膏0.12%",
+                  "dose": 10,
+                  "unit": "g",
+                  "medicine_code_type": "2,",
+                  "medicine_code": 662640418,
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": "【患部に塗布】",
+                "dispensing_quantity": 1,
+                "dispensing_unit": "調剤",
+                "dosage_form_code": 5,
+                "code_type": 1,
+                "code": null,
+                "author": 1
+              }
+            }
+          ]
+        }
+      ],
+      "dose_caution": [
+        {
+          "content": "他の薬を併用する際は、相談してください。",
+          "author": 1
+        }
+      ],
+      "medical_facility_providing": [
+        {
+          "content": "嚥下困難が見られるため、錠剤は粉砕して投与する。",
+          "author": 1
+        }
+      ],
+      "leftover_medicine_confirmation": [
+        {
+          "content": "服用忘れによりｺﾘｵﾊﾟﾝｶﾌﾟｾﾙ12錠残薬あり",
+          "author": 1
+        }
+      ],
+      "note": [
+        {
+          "content": "正しい飲み方は薬袋等をご覧下さい。",
+          "author": 1
+        }
+      ],
+      "patient_entry": [
+        {
+          "content": "朝に薬を飲んだ後、めまいがあった",
+          "entried_on": "R020407"
+        }
+      ]
+    }
+  ],
+  "pharmacist": [
+    {
+      "name": "薬剤師 次郎",
+      "pharmacy": "工業会薬局 駅前店",
+      "contact": "03-3506-8010",
+      "started_on": "H280411",
+      "ended_on": "R020407",
+      "author": 1
+    }
+  ]
+}
