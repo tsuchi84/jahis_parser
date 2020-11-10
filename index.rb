@@ -1,4 +1,7 @@
 require_relative 'jahis_parser'
 
-parser = JahisParser::Loader.new('sample_data/11.csv')
-parser.exec
+(1..11).each do |n|
+  p n
+  parser = JahisParser::Loader.new("sample_data/#{n}.csv")
+  parser.exec
+end

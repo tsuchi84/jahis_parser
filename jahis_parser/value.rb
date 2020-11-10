@@ -114,6 +114,14 @@ module JahisParser
       }.freeze
     end
 
+    class ProvidingType < Enum
+      ENUM = {
+        30 => '入院中に副作用が発現した薬剤に関する情報',
+        31 => '退院後の療養を担う保険医療機関での投薬又は保険薬局での調剤に必要な服薬の状況及び投薬上の工夫に関する情報',
+        99 => 'その他',
+      }.freeze
+    end
+
     class Date
       def initialize(value)
         @value = value

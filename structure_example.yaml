@@ -289,6 +289,8 @@ dispensing_info:
     medical_facility_providing:
       - # 内容
         content: 嚥下困難が見られるため、錠剤は粉砕して投与する。
+        # 提供情報種別
+        providing_type: 31
         # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
         author: 1
     # (421) 残薬確認レコード

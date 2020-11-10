@@ -1,0 +1,357 @@
+require_relative 'value'
+
+module JahisParser
+  module Row
+    # バージョン情報
+    class Version
+      def initialize(row)
+        # TODO バージョン情報チェック
+        @params = {
+          version: row[0],
+          output: row[1], # TODO enum
+        }
+      end
+    end
+
+    # (1) 患者情報レコード
+    class PatientInfo
+      def initialize(row)
+        @params = {
+          # 患者氏名
+          name: row[0],
+          # 患者性別 （1:男 2:女）
+          gender: Value::Gender.new(row[1]),
+          # 患者生年月日
+          birthday: Value::Date.new(row[2]),
+          # 患者郵便番号
+          zip_code: row[3],
+          # 患者住所
+          address: row[4],
+          # 患者電話番号
+          phone_number: row[5],
+          # 緊急連絡先
+          emergency_contact: row[6],
+          # 血液型
+          blood_type: row[7],
+          # 体重
+          body_weight: Value::Weight.new(row[8]),
+          # 患者氏名カナ
+          name_kana: row[9],
+        }
+      end
+    end
+
+    # (2) 患者特記レコード
+    class PatientNote
+      def initialize(row)
+        @params = {
+          # 患者特記種別 （1:アレルギー歴 2:副作用歴 3：既往歴 9：その他）
+          type: Value::PatientNoteType.new(row[0]),
+          # 患者特記内容
+          content: row[1],
+          # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+          author: Value::Author.new(row[2]),
+        }
+      end
+    end
+
+    # (3) 一般用医薬品服用レコード
+    class OtcDrug
+      def initialize(row)
+        @parmas = {
+          # 薬品名称
+          name: row[0],
+          # 服用開始年月日
+          started_on: Value::Date.new(row[1]),
+          # 服用終了年月日
+          ended_on: Value::Date.new(row[2]),
+          # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+          author: Value::Author.new(row[3]),
+        }
+      end
+    end
+
+    # (4) 手帳メモレコード
+    class Memo
+      def initialize(row)
+        @params = {
+          # 手帳メモ情報
+          content: row[0],
+          # メモ入力年月日
+          entried_on: Value::Date.new(row[1]),
+          # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+          author: Value::Author.new(row[2]),
+        }
+      end
+    end
+
+    # (5) 調剤等年月日レコード
+    class DispensedOn
+      def initialize(row)
+        @params = {
+          # 調剤等年月日
+          date: Value::Date.new(row[0]),
+          # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+          author: Value::Author.new(row[1]),
+        }
+      end
+    end
+
+    # (11) 調剤－医療機関等レコード
+    class DispensingFacility
+      def initialize(row)
+        @params = {
+          # 医療機関等名称
+          name: row[0],
+          # 医療機関等都道府県
+          prefecture: Value::Prefecture.new(row[1]),
+          # 医療機関等点数表 （1:医科 3:歯科 4:調剤）
+          score_table: Value::ScoreTable.new(row[2]),
+          # 医療機関等コード
+          code: row[3],
+          # 医療機関等郵便番号
+          zip_code: row[4],
+          # 医療機関等住所
+          address: row[5],
+          # 医療機関等電話番号
+          phone_number: row[6],
+          # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+          author: Value::Author.new(row[7]),
+        }
+      end
+    end
+
+    # (15) 調剤－医師・薬剤師レコード
+    class DispensingDoctorPharmacist
+      def initialize(row)
+        @params = {
+          # 医師・薬剤師氏名
+          name: row[0],
+          # 医師・薬剤師連絡先
+          contact: row[1],
+          # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+          author: Value::Author.new(row[2]),
+        }
+      end
+    end
+
+    # (51) 処方－医療機関レコード
+    class PrescriptionFacility
+      def initialize(row)
+        @params = {
+          # 医療機関名称
+          name: row[0],
+          # 医療機関都道府県
+          prefecture: Value::Prefecture.new(row[1]),
+          # 医療機関点数表 （1:医科 3:歯科）
+          score_table: Value::ScoreTable.new(row[2]),
+          # 医療機関コード
+          code: row[3],
+          # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+          author: Value::Author.new(row[4]),
+        }
+      end
+    end
+
+    # (55) 処方－医師レコード
+    class Doctor
+      def initialize(row)
+        @params = {
+          # 医師氏名
+          doctor_name: row[0],
+          # 診療科名
+          department_name: row[1],
+          # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+          author: Value::Author.new(row[2]),
+        }
+      end
+    end
+
+    # (201) 薬品レコード
+    class Medicine
+      def initialize(row)
+        @params = {
+          # 薬品名称
+          name: row[0],
+          # 用量
+          dose: row[1], # TODO ValueObject
+          # 単位名
+          unit: row[2],
+          # 薬品コード種別
+          code_type: row[3],
+          # 薬品コード
+          code: row[4],
+          # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+          author: Value::Author.new(row[5]),
+        }
+
+        @supplement = []
+        @dose_caution = []
+      end
+
+      def supplement(row)
+        @supplement.push Supplement.new(row)
+      end
+
+      def dose_caution(row)
+        @dose_caution.push DoseCaution.new(row)
+      end
+
+      # (281) 薬品補足レコード
+      class Supplement
+        def initialize(row)
+          @params = {
+              # 内容
+              content: row[0],
+              # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+              author: Value::Author.new(row[1]),
+          }
+        end
+      end
+
+      # (291) 薬品服用注意レコード
+      class DoseCaution
+        def initialize(row)
+          @params = {
+            # 内容
+            content: row[0],
+            # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+            author: Value::Author.new(row[1]),
+          }
+        end
+      end
+    end
+
+    # (301) 用法情報
+    class DosageAdministration
+      def initialize(row)
+        @params = {
+          # 用法名称
+          name: row[0],
+          # 調剤数量 (内服:投与日数、内滴:「1」固定、屯服:投与回数、外用:「1」固定、注射「1」固定、浸煎薬:投与日数、湯薬:投与日数、材料:「1」固定、その他:「1」固定)
+          dispensing_quantity: row[1],
+          # 調剤単位
+          dispensing_unit: row[2],
+          # 剤形コード (別表４)
+          dosage_form_code: row[3], # TODO ValueObject
+          # 用法コード種別 (1:ｺｰﾄﾞなし 2:JAMI 用法ｺｰﾄ 3～:将来統一コードを想定)
+          code_type: row[4], # TODO ValueObject
+          # 用法コード
+          code: row[5],
+        }
+
+        @supplement = []
+      end
+
+      def supplement(row)
+        @supplement.push Supplement.new(row)
+      end
+
+      # (311) 用法補足レコード
+      class Supplement
+        def initialize(row)
+          @params = {
+            # 内容
+            content: row[0],
+            # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+            author: Value::Author.new(row[1]),
+          }
+        end
+      end
+    end
+
+    # (391) 処方服用注意レコード
+    class RecipeDoseCaution
+      def initialize(row)
+        @params = {
+          # 内容
+          content: row[0],
+          # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+          author: Value::Author.new(row[1]),
+        }
+      end
+    end
+
+    # (401) 服用注意レコード
+    class DoseCaution
+      def initialize(row)
+        @params = {
+          # 内容
+          content: row[0],
+          # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+          author: Value::Author.new(row[1]),
+        }
+      end
+    end
+
+    # (411) 医療機関等提供情報レコード
+    class MedicalFacilityProviding
+      def initialize(row)
+        @params = {
+          # 内容
+          content: row[0],
+          # 提供情報種別
+          providing_type: Value::ProvidingType.new(row[1]),
+          # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+          author: Value::Author.new(row[2]),
+        }
+      end
+    end
+
+    # (421) 残薬確認レコード
+    class LeftoverMedicineConfirmation
+      def initialize(row)
+        @params = {
+          # 内容
+          content: row[0],
+          # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+          author: Value::Author.new(row[1]),
+        }
+      end
+    end
+
+    # (501) 備考レコード
+    class Note
+      def initialize(row)
+        @params = {
+          # 内容
+          content: row[0],
+          # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+          author: Value::Author.new(row[1]),
+        }
+      end
+    end
+
+    # (601) 患者等記入レコード
+    class PatientEntry
+      def initialize(row)
+        @params = {
+          # 内容
+          content: row[0],
+          # 入力年月日
+          entried_on: Value::Date.new(row[1]),
+        }
+      end
+    end
+
+    # (701) かかりつけ薬剤師レコード
+    class Pharmacist
+      def initialize(row)
+        @params = {
+          # かかりつけ薬剤師氏名
+          name: row[0],
+          # 勤務先薬局名称
+          pharmacy: row[1],
+          # 連絡先
+          contact: row[2],
+          # 担当開始日
+          started_on: Value::Date.new(row[3]),
+          # 担当終了日
+          ended_on: Value::Date.new(row[4]),
+          # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+          author: Value::Author.new(row[5]),
+        }
+      end
+    end
+  end
+end

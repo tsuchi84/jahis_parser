@@ -258,7 +258,7 @@
             "department_name": "皮膚科",
             "author": 1
           },
-          "rp": [
+          "recipe": [
             {
               "number": 6,
               "medicine": [
@@ -293,6 +293,7 @@
       "medical_facility_providing": [
         {
           "content": "嚥下困難が見られるため、錠剤は粉砕して投与する。",
+          "providing_type": 31,
           "author": 1
         }
       ],
