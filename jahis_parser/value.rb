@@ -15,6 +15,10 @@ module JahisParser
         end
       end
 
+      def to_value
+        @value
+      end
+
       def pretty_print(q)
         if @value.nil?
           q.pp nil
@@ -23,6 +27,14 @@ module JahisParser
 
         q.pp "#{@value}:#{self.class::ENUM[@value]}"
       end
+    end
+
+    # 出力区分
+    class OutputType < Enum
+      ENUM = {
+        1 => '医療機関・薬局から患者等に情報を提供する場合',
+        2 => '患者等から医療機関・薬局に情報を提供する場合',
+      }.freeze
     end
 
     # レコード作成者
@@ -106,6 +118,7 @@ module JahisParser
       }.freeze
     end
 
+    # 医療機関等点数表
     class ScoreTable < Enum
       ENUM = {
         1 => '医科',
@@ -114,6 +127,7 @@ module JahisParser
       }.freeze
     end
 
+    # 提供情報種別
     class ProvidingType < Enum
       ENUM = {
         30 => '入院中に副作用が発現した薬剤に関する情報',
@@ -122,20 +136,84 @@ module JahisParser
       }.freeze
     end
 
+    # 剤形コード (別表４)
+    class DosageFormCode < Enum
+      ENUM = {
+        1 => '内服',
+        2 => '内滴',
+        3 => '屯服',
+        4 => '注射',
+        5 => '外用',
+        6 => '浸煎',
+        7 => '湯',
+        9 => '材料',
+        10 => 'その他',
+      }.freeze
+    end
+
+    # 用法コード種別
+    class DosageAdministrationCodeType < Enum
+      ENUM = {
+        1 => 'ｺｰﾄﾞなし',
+        2 => 'JAMI 用法ｺｰﾄﾞ',
+        3 => '将来統一コードを想定',
+      }.freeze
+    end
+
+    # 和暦対応の日付
     class Date
+      JAPANESE_CALENDAR_OFFSET = {
+        'M' => 1867, # M 明治
+        'T' => 1911, # T 大正
+        'S' => 1925, # S 昭和
+        'H' => 1988, # H 平成
+        'R' => 2018, # R 令和
+      }.freeze
+
       def initialize(value)
-        @value = value
-        # TODO 和暦対応の日付をパースする
-        # TODO nil も許可する
+        @original = value
+
+        case value
+        when nil
+          @value = nil
+        when /^\d{8}$/
+          # YYYYMMDD
+          @value = ::Date.strptime(value, '%Y%m%d')
+        when /^([MTSHR])(\d{2})(\d{2})(\d{2})$/
+          # GYYMMDD
+          y = JAPANESE_CALENDAR_OFFSET[$1] + $2.to_i
+
+          @value = ::Date.strptime("#{y}#{$3}#{$4}", '%Y%m%d')
+        else
+          raise "invalid date format '#{value}'"
+        end
+      end
+
+      def to_value
+        @value.strftime('%Y%m%d') unless @value.nil?
       end
     end
 
     # 体重
     class Weight
       def initialize(value)
-        @value = value.to_f
+        @value = value
+      end
+
+      def to_value
+        @value.to_f
       end
     end
 
+    # 用量
+    class Dose
+      def initialize(value)
+        @value = value
+      end
+
+      def to_value
+        @value.to_f
+      end
+    end
   end
 end

@@ -12,11 +12,25 @@ module JahisParser
       @pharmacist = []
     end
 
+    def to_hash
+      h = {}
+      h[:version] = @version.to_hash
+      h[:patient_info] = @patient_info.to_hash unless @patient_info.nil?
+      h[:patient_note] = @patient_note.map(&:to_hash) unless @patient_note.empty?
+      h[:otc_drug] = @otc_drug.map(&:to_hash) unless @otc_drug.empty?
+      h[:memo] = @memo.map(&:to_hash) unless @memo.empty?
+      h[:dispensing_info] = @dispensing_info.map(&:to_hash) unless @dispensing_info.empty?
+      h[:pharmacist] = @pharmacist.map(&:to_hash) unless @pharmacist.empty?
+      h
+    end
+
     # レコードの作成
     def set(number, row)
       case number
       when 1
         # (1) 患者情報レコード
+        raise '@patient_info already defined' unless @patient_info.nil?
+
         @patient_info = Row::PatientInfo.new(row)
       when 2
         # (2) 患者特記レコード
@@ -61,19 +75,42 @@ module JahisParser
         @patient_entry = []
       end
 
+      def to_hash
+        h = {}
+        h[:dispensed_on] = @dispensed_on.to_hash unless @dispensed_on.nil?
+        h[:dispensing_facility] = @dispensing_facility.to_hash unless @dispensing_facility.nil?
+        h[:dispensing_doctor_pharmacist] = @dispensing_doctor_pharmacist.to_hash unless @dispensing_doctor_pharmacist.nil?
+        h[:prescription_facility] = @prescription_facility.to_hash unless @prescription_facility.nil?
+        h[:prescription] = @prescription.map(&:to_hash) unless @prescription.empty?
+        h[:dose_caution] = @dose_caution.map(&:to_hash) unless @dose_caution.empty?
+        h[:medical_facility_providing] = @medical_facility_providing.map(&:to_hash) unless @medical_facility_providing.empty?
+        h[:leftover_medicine_confirmation] = @leftover_medicine_confirmation.map(&:to_hash) unless @leftover_medicine_confirmation.empty?
+        h[:note] = @note.map(&:to_hash) unless @note.empty?
+        h[:patient_entry] = @patient_entry.map(&:to_hash) unless @patient_entry.empty?
+        h
+      end
+
       def set(number, row)
         case number
         when 5
           # (5) 調剤等年月日レコード
+          raise '@dispensed_on already defined' unless @dispensed_on.nil?
+
           @dispensed_on = Row::DispensedOn.new(row)
         when 11
           # (11) 調剤－医療機関等レコード
+          raise '@dispensing_facility already defined' unless @dispensing_facility.nil?
+
           @dispensing_facility = Row::DispensingFacility.new(row)
         when 15
           # (15) 調剤－医師・薬剤師レコード
+          raise '@dispensing_doctor_pharmacist already defined' unless @dispensing_doctor_pharmacist.nil?
+
           @dispensing_doctor_pharmacist = Row::DispensingDoctorPharmacist.new(row)
         when 51
           # (51) 処方－医療機関レコード
+          raise '@prescription_facility already defined' unless @prescription_facility.nil?
+
           @prescription_facility = Row::PrescriptionFacility.new(row)
         when 55
           # (55) 処方－医師レコード
@@ -82,6 +119,7 @@ module JahisParser
           @prescription.push prescription
           prescription.set number, row
         when 201, 281, 291, 301, 311, 391
+          # @prescription 以下の処理は委譲する
           if @prescription.empty?
             @prescription.push Prescription.new
           end
@@ -112,6 +150,13 @@ module JahisParser
         def initialize
           @doctor = nil
           @recipe = []
+        end
+
+        def to_hash
+          h = {}
+          h[:doctor] = @doctor.to_hash unless @doctor.nil?
+          h[:recipe] = @recipe.map(&:to_hash) unless @recipe.empty?
+          h
         end
 
         def set(number, row)
@@ -152,6 +197,15 @@ module JahisParser
             @medicine = []
             @dosage_administration = nil
             @dose_caution = []
+          end
+
+          def to_hash
+            h = {}
+            h[:number] = @number
+            h[:medicine] = @medicine.map(&:to_hash) unless @medicine.empty?
+            h[:dosage_administration] = @dosage_administration.to_hash unless @dosage_administration.nil?
+            h[:dose_caution] = @dose_caution.map(&:to_hash) unless @dose_caution.empty?
+            h
           end
 
           def set(number, row)

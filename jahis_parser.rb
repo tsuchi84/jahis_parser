@@ -1,20 +1,14 @@
 # frozen_string_literal: true
 
-require 'json'
+require 'csv'
 require_relative 'jahis_parser/record'
 
 # JAHIS
 module JahisParser
   # Loader
   class Loader
-    require 'csv'
-
-    def initialize(filename)
-      @filename = filename
-    end
-
-    def exec
-      rows = CSV.read(@filename, encoding: 'CP932:UTF-8')
+    def self.load_from_file(filename)
+      rows = CSV.read(filename, encoding: 'CP932:UTF-8')
 
       record = Record.new(rows.shift)
 
@@ -23,7 +17,7 @@ module JahisParser
         record.set number, row
       end
 
-      pp record
+      record
     end
   end
 end
