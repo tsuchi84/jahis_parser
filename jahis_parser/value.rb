@@ -1,3 +1,5 @@
+require 'date'
+
 module JahisParser
   module Value
     class Enum
@@ -17,6 +19,10 @@ module JahisParser
 
       def to_value
         @value
+      end
+
+      def to_s
+        self.class::ENUM[@value]
       end
 
       def pretty_print(q)
@@ -190,29 +196,33 @@ module JahisParser
       end
 
       def to_value
-        @value.strftime('%Y%m%d') unless @value.nil?
+        @value&.strftime('%Y%m%d')
+      end
+
+      def to_date
+        @value
       end
     end
 
     # 体重
     class Weight
       def initialize(value)
-        @value = value
+        @value = value.to_f
       end
 
       def to_value
-        @value.to_f
+        @value
       end
     end
 
     # 用量
     class Dose
       def initialize(value)
-        @value = value
+        @value = value.to_f
       end
 
       def to_value
-        @value.to_f
+        @value
       end
     end
   end
