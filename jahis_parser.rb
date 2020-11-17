@@ -13,8 +13,7 @@ module JahisParser
       record = Record.new(rows.shift)
 
       rows.each do |row|
-        number = row.shift.to_i
-        record.set number, row
+        record.set row
       end
 
       record

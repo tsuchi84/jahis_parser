@@ -1,4 +1,6 @@
 require 'date'
+require 'bigdecimal'
+require 'bigdecimal/util'
 
 module JahisParser
   module Value
@@ -207,10 +209,12 @@ module JahisParser
     # 体重
     class Weight
       def initialize(value)
-        @value = value.to_f
+        @value = value.to_d
       end
 
       def to_value
+        return nil if @value.zero?
+
         @value
       end
     end
@@ -218,10 +222,12 @@ module JahisParser
     # 用量
     class Dose
       def initialize(value)
-        @value = value.to_f
+        @value = value.to_d
       end
 
       def to_value
+        return nil if @value.zero?
+
         @value
       end
     end

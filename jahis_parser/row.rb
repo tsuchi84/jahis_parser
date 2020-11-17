@@ -38,25 +38,25 @@ module JahisParser
       def initialize(row)
         @params = {
           # 患者氏名
-          name: row[0],
+          name: row[1],
           # 患者性別 （1:男 2:女）
-          gender: Value::Gender.new(row[1]),
+          gender: Value::Gender.new(row[2]),
           # 患者生年月日
-          birthday: Value::Date.new(row[2]),
+          birthday: Value::Date.new(row[3]),
           # 患者郵便番号
-          zip_code: row[3],
+          zip_code: row[4],
           # 患者住所
-          address: row[4],
+          address: row[5],
           # 患者電話番号
-          phone_number: row[5],
+          phone_number: row[6],
           # 緊急連絡先
-          emergency_contact: row[6],
+          emergency_contact: row[7],
           # 血液型
-          blood_type: row[7],
+          blood_type: row[8],
           # 体重
-          body_weight: Value::Weight.new(row[8]),
+          body_weight: Value::Weight.new(row[9]),
           # 患者氏名カナ
-          name_kana: row[9],
+          name_kana: row[10],
         }
       end
     end
@@ -67,11 +67,11 @@ module JahisParser
       def initialize(row)
         @params = {
           # 患者特記種別 （1:アレルギー歴 2:副作用歴 3：既往歴 9：その他）
-          type: Value::PatientNoteType.new(row[0]),
+          type: Value::PatientNoteType.new(row[1]),
           # 患者特記内容
-          content: row[1],
+          content: row[2],
           # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-          author: Value::Author.new(row[2]),
+          author: Value::Author.new(row[3]),
         }
       end
     end
@@ -82,13 +82,13 @@ module JahisParser
       def initialize(row)
         @params = {
           # 薬品名称
-          name: row[0],
+          name: row[1],
           # 服用開始年月日
-          started_on: Value::Date.new(row[1]),
+          started_on: Value::Date.new(row[2]),
           # 服用終了年月日
-          ended_on: Value::Date.new(row[2]),
+          ended_on: Value::Date.new(row[3]),
           # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-          author: Value::Author.new(row[3]),
+          author: Value::Author.new(row[4]),
         }
       end
     end
@@ -99,11 +99,11 @@ module JahisParser
       def initialize(row)
         @params = {
           # 手帳メモ情報
-          content: row[0],
+          content: row[1],
           # メモ入力年月日
-          entried_on: Value::Date.new(row[1]),
+          entried_on: Value::Date.new(row[2]),
           # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-          author: Value::Author.new(row[2]),
+          author: Value::Author.new(row[3]),
         }
       end
     end
@@ -114,9 +114,9 @@ module JahisParser
       def initialize(row)
         @params = {
           # 調剤等年月日
-          date: Value::Date.new(row[0]),
+          date: Value::Date.new(row[1]),
           # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-          author: Value::Author.new(row[1]),
+          author: Value::Author.new(row[2]),
         }
       end
     end
@@ -127,21 +127,21 @@ module JahisParser
       def initialize(row)
         @params = {
           # 医療機関等名称
-          name: row[0],
+          name: row[1],
           # 医療機関等都道府県
-          prefecture: Value::Prefecture.new(row[1]),
+          prefecture: Value::Prefecture.new(row[2]),
           # 医療機関等点数表 （1:医科 3:歯科 4:調剤）
-          score_table: Value::ScoreTable.new(row[2]),
+          score_table: Value::ScoreTable.new(row[3]),
           # 医療機関等コード
-          code: row[3],
+          code: row[4],
           # 医療機関等郵便番号
-          zip_code: row[4],
+          zip_code: row[5],
           # 医療機関等住所
-          address: row[5],
+          address: row[6],
           # 医療機関等電話番号
-          phone_number: row[6],
+          phone_number: row[7],
           # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-          author: Value::Author.new(row[7]),
+          author: Value::Author.new(row[8]),
         }
       end
     end
@@ -152,11 +152,11 @@ module JahisParser
       def initialize(row)
         @params = {
           # 医師・薬剤師氏名
-          name: row[0],
+          name: row[1],
           # 医師・薬剤師連絡先
-          contact: row[1],
+          contact: row[2],
           # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-          author: Value::Author.new(row[2]),
+          author: Value::Author.new(row[3]),
         }
       end
     end
@@ -167,15 +167,15 @@ module JahisParser
       def initialize(row)
         @params = {
           # 医療機関名称
-          name: row[0],
+          name: row[1],
           # 医療機関都道府県
-          prefecture: Value::Prefecture.new(row[1]),
+          prefecture: Value::Prefecture.new(row[2]),
           # 医療機関点数表 （1:医科 3:歯科）
-          score_table: Value::ScoreTable.new(row[2]),
+          score_table: Value::ScoreTable.new(row[3]),
           # 医療機関コード
-          code: row[3],
+          code: row[4],
           # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-          author: Value::Author.new(row[4]),
+          author: Value::Author.new(row[5]),
         }
       end
     end
@@ -186,11 +186,11 @@ module JahisParser
       def initialize(row)
         @params = {
           # 医師氏名
-          doctor_name: row[0],
+          doctor_name: row[1],
           # 診療科名
-          department_name: row[1],
+          department_name: row[2],
           # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-          author: Value::Author.new(row[2]),
+          author: Value::Author.new(row[3]),
         }
       end
     end
@@ -201,17 +201,17 @@ module JahisParser
       def initialize(row)
         @params = {
           # 薬品名称
-          name: row[0],
+          name: row[2],
           # 用量
-          dose: Value::Dose.new(row[1]),
+          dose: Value::Dose.new(row[3]),
           # 単位名
-          unit: row[2],
+          unit: row[4],
           # 薬品コード種別
-          code_type: row[3],
+          code_type: row[5],
           # 薬品コード
-          code: row[4],
+          code: row[6],
           # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-          author: Value::Author.new(row[5]),
+          author: Value::Author.new(row[7]),
         }
 
         @supplement = []
@@ -232,9 +232,9 @@ module JahisParser
         def initialize(row)
           @params = {
               # 内容
-              content: row[0],
+              content: row[2],
               # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-              author: Value::Author.new(row[1]),
+              author: Value::Author.new(row[3]),
           }
         end
       end
@@ -245,9 +245,9 @@ module JahisParser
         def initialize(row)
           @params = {
             # 内容
-            content: row[0],
+            content: row[2],
             # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-            author: Value::Author.new(row[1]),
+            author: Value::Author.new(row[3]),
           }
         end
       end
@@ -259,17 +259,17 @@ module JahisParser
       def initialize(row)
         @params = {
           # 用法名称
-          name: row[0],
+          name: row[2],
           # 調剤数量 (内服:投与日数、内滴:「1」固定、屯服:投与回数、外用:「1」固定、注射「1」固定、浸煎薬:投与日数、湯薬:投与日数、材料:「1」固定、その他:「1」固定)
-          dispensing_quantity: row[1],
+          dispensing_quantity: row[3],
           # 調剤単位
-          dispensing_unit: row[2],
+          dispensing_unit: row[4],
           # 剤形コード (別表４)
-          dosage_form_code: Value::DosageFormCode.new(row[3]),
+          dosage_form_code: Value::DosageFormCode.new(row[5]),
           # 用法コード種別 (1:ｺｰﾄﾞなし 2:JAMI 用法ｺｰﾄ 3～:将来統一コードを想定)
-          code_type: Value::DosageAdministrationCodeType.new(row[4]),
+          code_type: Value::DosageAdministrationCodeType.new(row[6]),
           # 用法コード
-          code: row[5],
+          code: row[7],
         }
 
         @supplement = []
@@ -285,9 +285,9 @@ module JahisParser
         def initialize(row)
           @params = {
             # 内容
-            content: row[0],
+            content: row[2],
             # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-            author: Value::Author.new(row[1]),
+            author: Value::Author.new(row[3]),
           }
         end
       end
@@ -299,9 +299,9 @@ module JahisParser
       def initialize(row)
         @params = {
           # 内容
-          content: row[0],
+          content: row[2],
           # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-          author: Value::Author.new(row[1]),
+          author: Value::Author.new(row[3]),
         }
       end
     end
@@ -312,9 +312,9 @@ module JahisParser
       def initialize(row)
         @params = {
           # 内容
-          content: row[0],
+          content: row[1],
           # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-          author: Value::Author.new(row[1]),
+          author: Value::Author.new(row[2]),
         }
       end
     end
@@ -325,11 +325,11 @@ module JahisParser
       def initialize(row)
         @params = {
           # 内容
-          content: row[0],
+          content: row[1],
           # 提供情報種別
-          providing_type: Value::ProvidingType.new(row[1]),
+          providing_type: Value::ProvidingType.new(row[2]),
           # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-          author: Value::Author.new(row[2]),
+          author: Value::Author.new(row[3]),
         }
       end
     end
@@ -340,9 +340,9 @@ module JahisParser
       def initialize(row)
         @params = {
           # 内容
-          content: row[0],
+          content: row[1],
           # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-          author: Value::Author.new(row[1]),
+          author: Value::Author.new(row[2]),
         }
       end
     end
@@ -353,9 +353,9 @@ module JahisParser
       def initialize(row)
         @params = {
           # 内容
-          content: row[0],
+          content: row[1],
           # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-          author: Value::Author.new(row[1]),
+          author: Value::Author.new(row[2]),
         }
       end
     end
@@ -366,9 +366,9 @@ module JahisParser
       def initialize(row)
         @params = {
           # 内容
-          content: row[0],
+          content: row[1],
           # 入力年月日
-          entried_on: Value::Date.new(row[1]),
+          entried_on: Value::Date.new(row[2]),
         }
       end
     end
@@ -379,17 +379,17 @@ module JahisParser
       def initialize(row)
         @params = {
           # かかりつけ薬剤師氏名
-          name: row[0],
+          name: row[1],
           # 勤務先薬局名称
-          pharmacy: row[1],
+          pharmacy: row[2],
           # 連絡先
-          contact: row[2],
+          contact: row[3],
           # 担当開始日
-          started_on: Value::Date.new(row[3]),
+          started_on: Value::Date.new(row[4]),
           # 担当終了日
-          ended_on: Value::Date.new(row[4]),
+          ended_on: Value::Date.new(row[5]),
           # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
-          author: Value::Author.new(row[5]),
+          author: Value::Author.new(row[6]),
         }
       end
     end

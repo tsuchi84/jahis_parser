@@ -25,7 +25,9 @@ module JahisParser
     end
 
     # レコードの作成
-    def set(number, row)
+    def set(row)
+      number = row.slice(0).to_i
+
       case number
       when 1
         # (1) 患者情報レコード
@@ -45,12 +47,12 @@ module JahisParser
         # (5) 調剤等年月日レコード
         info = DispensingInfo.new
         @dispensing_info.push info
-        info.set number, row
+        info.set row
       when 11, 15, 51, 55, 201, 281, 291, 301, 311, 391, 401, 411, 421, 501, 601
         raise '@dispensing_info is empty' if @dispensing_info.empty?
 
         # dispensing_info 以下のものは処理を委譲する
-        @dispensing_info.last.set number, row
+        @dispensing_info.last.set row
       when 701
         # (701) かかりつけ薬剤師レコード
         @pharmacist.push Row::Pharmacist.new(row)
@@ -90,7 +92,8 @@ module JahisParser
         h
       end
 
-      def set(number, row)
+      def set(row)
+        number = row.slice(0).to_i
         case number
         when 5
           # (5) 調剤等年月日レコード
@@ -117,14 +120,14 @@ module JahisParser
           # このレコードが入ってきた場合パターン1となり prescription 以下のレコードが複数件になる可能性がある
           prescription = Prescription.new
           @prescription.push prescription
-          prescription.set number, row
+          prescription.set row
         when 201, 281, 291, 301, 311, 391
           # @prescription 以下の処理は委譲する
           if @prescription.empty?
             @prescription.push Prescription.new
           end
 
-          @prescription.last.set number, row
+          @prescription.last.set row
         when 401
           # (401) 服用注意レコード
           @dose_caution.push Row::DoseCaution.new(row)
@@ -159,14 +162,16 @@ module JahisParser
           h
         end
 
-        def set(number, row)
+        def set(row)
+          number = row.slice(0).to_i
+
           case number
           when 55
             # (55) 処方－医師レコード
             @doctor = Row::Doctor.new(row)
           when 201, 281, 291, 301, 311, 391
             # RP 毎の Recipe レコードの作成
-            rp = row.shift.to_i
+            rp = row.slice(1).to_i
             recipe = recipe(rp)
 
             if recipe.nil?
@@ -174,7 +179,7 @@ module JahisParser
               @recipe.push recipe
             end
 
-            recipe.set number, row
+            recipe.set row
           else
             raise "undefined number #{number}"
           end
@@ -208,7 +213,9 @@ module JahisParser
             h
           end
 
-          def set(number, row)
+          def set(row)
+            number = row.slice(0).to_i
+
             case number
             when 201
               # (201) 薬品レコード
