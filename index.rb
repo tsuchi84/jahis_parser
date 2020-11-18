@@ -11,4 +11,4 @@ require 'yaml'
   puts JSON.pretty_generate(record.to_hash)
   # puts YAML.dump(record.to_hash.deep_stringify_keys)
   # pp record.to_hash
-  end
+end

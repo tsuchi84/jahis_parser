@@ -7,7 +7,13 @@ module JahisParser
     def to_hash
       h = {}
       @params.each do |k, v|
-        h[k] = v.respond_to?(:to_value) ? v.to_value : v
+        h[k] = if v.respond_to?(:to_value)
+                 v.to_value
+               elsif v == ''
+                 nil
+               else
+                 v
+               end
       end
       h
     end
@@ -207,7 +213,7 @@ module JahisParser
           # 単位名
           unit: row[4],
           # 薬品コード種別
-          code_type: row[5],
+          code_type: Value::MedicineCodeType.new(row[5]),
           # 薬品コード
           code: row[6],
           # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
@@ -216,6 +222,13 @@ module JahisParser
 
         @supplement = []
         @dose_caution = []
+      end
+
+      def to_hash
+        h = super.to_hash
+        h[:supplement] = @supplement.map(&:to_hash) unless @supplement.empty?
+        h[:dose_caution] = @dose_caution.map(&:to_hash) unless @dose_caution.empty?
+        h
       end
 
       def supplement(row)
@@ -261,7 +274,7 @@ module JahisParser
           # 用法名称
           name: row[2],
           # 調剤数量 (内服:投与日数、内滴:「1」固定、屯服:投与回数、外用:「1」固定、注射「1」固定、浸煎薬:投与日数、湯薬:投与日数、材料:「1」固定、その他:「1」固定)
-          dispensing_quantity: row[3],
+          dispensing_quantity: Value::DispensingQuantity.new(row[3]),
           # 調剤単位
           dispensing_unit: row[4],
           # 剤形コード (別表４)
@@ -270,9 +283,17 @@ module JahisParser
           code_type: Value::DosageAdministrationCodeType.new(row[6]),
           # 用法コード
           code: row[7],
+          # レコード作成者 （1: 医療関係者 2:患者等 8:その他 9:不明）
+          author: Value::Author.new(row[8]),
         }
 
         @supplement = []
+      end
+
+      def to_hash
+        h = super.to_hash
+        h[:supplement] = @supplement.map(&:to_hash) unless @supplement.empty?
+        h
       end
 
       def supplement(row)

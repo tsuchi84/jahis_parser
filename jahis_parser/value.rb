@@ -1,6 +1,4 @@
 require 'date'
-require 'bigdecimal'
-require 'bigdecimal/util'
 
 module JahisParser
   module Value
@@ -168,6 +166,17 @@ module JahisParser
       }.freeze
     end
 
+    # 薬品コード種別
+    class MedicineCodeType < Enum
+      ENUM = {
+        1 => 'ｺｰﾄﾞなし',
+        2 => 'ﾚｾﾌﾟﾄ電算ｺｰﾄ',
+        3 => '厚労省ｺｰ ﾄﾞ',
+        4 => 'YJ ｺｰﾄﾞ',
+        6 => 'HOT ｺｰﾄﾞ',
+      }.freeze
+    end
+
     # 和暦対応の日付
     class Date
       JAPANESE_CALENDAR_OFFSET = {
@@ -182,7 +191,7 @@ module JahisParser
         @original = value
 
         case value
-        when nil
+        when nil, ''
           @value = nil
         when /^\d{8}$/
           # YYYYMMDD
@@ -209,7 +218,7 @@ module JahisParser
     # 体重
     class Weight
       def initialize(value)
-        @value = value.to_d
+        @value = value.to_f
       end
 
       def to_value
@@ -222,7 +231,20 @@ module JahisParser
     # 用量
     class Dose
       def initialize(value)
-        @value = value.to_d
+        @value = value.to_f
+      end
+
+      def to_value
+        return nil if @value.zero?
+
+        @value
+      end
+    end
+
+    # 調剤数量
+    class DispensingQuantity
+      def initialize(value)
+        @value = value.to_i
       end
 
       def to_value

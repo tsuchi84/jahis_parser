@@ -11,10 +11,7 @@ module JahisParser
       rows = CSV.read(filename, encoding: 'CP932:UTF-8')
 
       record = Record.new(rows.shift)
-
-      rows.each do |row|
-        record.set row
-      end
+      rows.each { |row| record.set row }
 
       record
     end
