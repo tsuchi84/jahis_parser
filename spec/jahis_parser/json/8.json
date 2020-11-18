@@ -1,0 +1,48 @@
+{
+  "version": {
+    "version": "JAHISTC07",
+    "output_type": 1
+  },
+  "patient_info": {
+    "name": "鈴木 太郎",
+    "gender": 1,
+    "birthday": "19580303",
+    "zip_code": null,
+    "address": null,
+    "phone_number": null,
+    "emergency_contact": null,
+    "blood_type": null,
+    "body_weight": null,
+    "name_kana": null
+  },
+  "dispensing_info": [
+    {
+      "dispensed_on": {
+        "date": "20200410",
+        "author": 1
+      },
+      "dispensing_facility": {
+        "name": "株式会社 工業病院",
+        "prefecture": 13,
+        "score_table": 1,
+        "code": "1234567",
+        "zip_code": null,
+        "address": null,
+        "phone_number": null,
+        "author": 1
+      },
+      "dispensing_doctor_pharmacist": {
+        "name": "工業会 次郎",
+        "contact": null,
+        "author": 1
+      },
+      "medical_facility_providing": [
+        {
+          "content": "嚥下困難が見られるため、錠剤は粉砕して投与する。",
+          "providing_type": 31,
+          "author": 1
+        }
+      ]
+    }
+  ]
+}

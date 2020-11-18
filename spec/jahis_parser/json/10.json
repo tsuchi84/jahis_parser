@@ -1,0 +1,121 @@
+{
+  "version": {
+    "version": "JAHISTC07",
+    "output_type": 2
+  },
+  "patient_info": {
+    "name": "鈴木 太郎",
+    "gender": 1,
+    "birthday": "19580303",
+    "zip_code": null,
+    "address": null,
+    "phone_number": null,
+    "emergency_contact": null,
+    "blood_type": null,
+    "body_weight": null,
+    "name_kana": null
+  },
+  "dispensing_info": [
+    {
+      "dispensed_on": {
+        "date": "20200410",
+        "author": 1
+      },
+      "dispensing_facility": {
+        "name": "株式会社 工業会薬局 駅前店",
+        "prefecture": null,
+        "score_table": null,
+        "code": null,
+        "zip_code": null,
+        "address": null,
+        "phone_number": null,
+        "author": 1
+      },
+      "prescription_facility": {
+        "name": "医療法人 工業会病院",
+        "prefecture": null,
+        "score_table": null,
+        "code": null,
+        "author": 1
+      },
+      "prescription": [
+        {
+          "recipe": [
+            {
+              "number": 1,
+              "medicine": [
+                {
+                  "name": "ｱﾀﾞﾗｰﾄCR錠20mg",
+                  "dose": 1.0,
+                  "unit": "錠",
+                  "code_type": 2,
+                  "code": "610421321",
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": "【分１ 朝食後服用】",
+                "dispensing_quantity": null,
+                "dispensing_unit": null,
+                "dosage_form_code": null,
+                "code_type": null,
+                "code": null,
+                "author": 1
+              }
+            },
+            {
+              "number": 2,
+              "medicine": [
+                {
+                  "name": "ﾌｧﾓﾁｼﾞﾝOD錠20mg「ﾄｰﾜ」",
+                  "dose": 2.0,
+                  "unit": "錠",
+                  "code_type": 2,
+                  "code": "621687401",
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": "【分２ 朝夕食後服用】",
+                "dispensing_quantity": null,
+                "dispensing_unit": null,
+                "dosage_form_code": null,
+                "code_type": null,
+                "code": null,
+                "author": 1
+              }
+            },
+            {
+              "number": 3,
+              "medicine": [
+                {
+                  "name": "ｼﾝﾊﾞｽﾀﾁﾝ錠10mg",
+                  "dose": 1.0,
+                  "unit": "錠",
+                  "code_type": 2,
+                  "code": "622315500",
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": "【分１ 夕食後服用】",
+                "dispensing_quantity": null,
+                "dispensing_unit": null,
+                "dosage_form_code": null,
+                "code_type": null,
+                "code": null,
+                "author": 1
+              }
+            }
+          ]
+        }
+      ],
+      "patient_entry": [
+        {
+          "content": "朝に薬を飲んだ後、めまいがあった",
+          "entried_on": "20200407"
+        }
+      ]
+    }
+  ]
+}

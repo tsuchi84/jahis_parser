@@ -1,0 +1,280 @@
+{
+  "version": {
+    "version": "JAHISTC07",
+    "output_type": 2
+  },
+  "patient_info": {
+    "name": "鈴木 太郎",
+    "gender": 1,
+    "birthday": "19580303",
+    "zip_code": "105-0004",
+    "address": "東京都港区新橋○丁目",
+    "phone_number": "03-0000-0000",
+    "emergency_contact": "090-0000-0000",
+    "blood_type": "Ｂ＋",
+    "body_weight": 63.7,
+    "name_kana": null
+  },
+  "patient_note": [
+    {
+      "type": 1,
+      "content": "乳製品",
+      "author": 1
+    },
+    {
+      "type": 2,
+      "content": "セフェム系（発熱）",
+      "author": 1
+    },
+    {
+      "type": 3,
+      "content": "狭心症（2011年〜）",
+      "author": 1
+    },
+    {
+      "type": 9,
+      "content": "嚥下困難",
+      "author": 1
+    }
+  ],
+  "otc_drug": [
+    {
+      "name": "ﾊﾞﾌｧﾘﾝ",
+      "started_on": "20200406",
+      "ended_on": "20200409",
+      "author": 2
+    }
+  ],
+  "memo": [
+    {
+      "content": "健康診断",
+      "entried_on": "20200411",
+      "author": 2
+    },
+    {
+      "content": "インフルエンザ予防接種",
+      "entried_on": "20200331",
+      "author": 2
+    }
+  ],
+  "dispensing_info": [
+    {
+      "dispensed_on": {
+        "date": "20200410",
+        "author": 1
+      },
+      "dispensing_facility": {
+        "name": "株式会社 工業会薬局 駅前店",
+        "prefecture": 13,
+        "score_table": 4,
+        "code": "1234567",
+        "zip_code": null,
+        "address": null,
+        "phone_number": null,
+        "author": 1
+      },
+      "dispensing_doctor_pharmacist": {
+        "name": "薬剤師 次郎",
+        "contact": null,
+        "author": 1
+      },
+      "prescription_facility": {
+        "name": "医療法人 工業会病院",
+        "prefecture": 13,
+        "score_table": 1,
+        "code": "1234567",
+        "author": 1
+      },
+      "prescription": [
+        {
+          "recipe": [
+            {
+              "number": 1,
+              "medicine": [
+                {
+                  "name": "ﾘﾝﾃﾞﾛﾝ-VG軟膏0.12%",
+                  "dose": 5.0,
+                  "unit": "g",
+                  "code_type": 2,
+                  "code": "662640418",
+                  "author": 1,
+                  "dose_caution": [
+                    {
+                      "content": "かゆみや発赤、腫れがあらわれた場合には、主治医またや薬剤師に相談してください。",
+                      "author": 1
+                    }
+                  ]
+                }
+              ],
+              "dosage_administration": {
+                "name": "【患部に塗布】",
+                "dispensing_quantity": 1,
+                "dispensing_unit": "調剤",
+                "dosage_form_code": 5,
+                "code_type": 1,
+                "code": null,
+                "author": 1
+              }
+            },
+            {
+              "number": 2,
+              "medicine": [
+                {
+                  "name": "ﾛｷｿﾆﾝ錠60mg",
+                  "dose": 1.0,
+                  "unit": "錠",
+                  "code_type": 2,
+                  "code": "620098801",
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": "【腰痛時】",
+                "dispensing_quantity": 10,
+                "dispensing_unit": "回分",
+                "dosage_form_code": 3,
+                "code_type": 1,
+                "code": null,
+                "author": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dispensed_on": {
+        "date": "20200407",
+        "author": 1
+      },
+      "dispensing_facility": {
+        "name": "株式会社 工業会薬局 駅前店",
+        "prefecture": null,
+        "score_table": null,
+        "code": null,
+        "zip_code": null,
+        "address": null,
+        "phone_number": null,
+        "author": 1
+      },
+      "dispensing_doctor_pharmacist": {
+        "name": "薬剤師 太郎",
+        "contact": null,
+        "author": 1
+      },
+      "prescription_facility": {
+        "name": "医療法人 工業会病院",
+        "prefecture": null,
+        "score_table": null,
+        "code": null,
+        "author": 1
+      },
+      "prescription": [
+        {
+          "recipe": [
+            {
+              "number": 1,
+              "medicine": [
+                {
+                  "name": "ｱﾀﾞﾗｰﾄCR錠20mg",
+                  "dose": 1.0,
+                  "unit": "錠",
+                  "code_type": 2,
+                  "code": "610421321",
+                  "author": 1,
+                  "dose_caution": [
+                    {
+                      "content": "グレープフルーツジュースと一緒に飲まないでください。効き目が強くなることがあります。",
+                      "author": 1
+                    }
+                  ]
+                }
+              ],
+              "dosage_administration": {
+                "name": "【分１ 朝食後服用】",
+                "dispensing_quantity": 28,
+                "dispensing_unit": "日分",
+                "dosage_form_code": 1,
+                "code_type": 1,
+                "code": null,
+                "author": 1
+              },
+              "dose_caution": [
+                {
+                  "content": "めまい等が現れることがあるので車の運転や高所作業等に注意してください。",
+                  "author": 1
+                }
+              ]
+            },
+            {
+              "number": 2,
+              "medicine": [
+                {
+                  "name": "ﾌｧﾓﾁｼﾞﾝOD錠20mg「ﾄｰﾜ」",
+                  "dose": 2.0,
+                  "unit": "錠",
+                  "code_type": 2,
+                  "code": "621687401",
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": "【分２ 朝夕食後服用】",
+                "dispensing_quantity": 28,
+                "dispensing_unit": "日分",
+                "dosage_form_code": 1,
+                "code_type": 1,
+                "code": null,
+                "author": 1
+              }
+            },
+            {
+              "number": 3,
+              "medicine": [
+                {
+                  "name": "ｼﾝﾊﾞｽﾀﾁﾝ錠10mg",
+                  "dose": 1.0,
+                  "unit": "錠",
+                  "code_type": 2,
+                  "code": "622315500",
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": "【分１ 夕食後服用】",
+                "dispensing_quantity": 28,
+                "dispensing_unit": "日分",
+                "dosage_form_code": 1,
+                "code_type": 1,
+                "code": null,
+                "author": 1
+              }
+            }
+          ]
+        }
+      ],
+      "dose_caution": [
+        {
+          "content": "他の薬を併用する際は、相談してください。",
+          "author": 1
+        }
+      ],
+      "patient_entry": [
+        {
+          "content": "朝に薬を飲んだ後、めまいがあった",
+          "entried_on": "20200407"
+        }
+      ]
+    }
+  ],
+  "pharmacist": [
+    {
+      "name": "薬剤師 次郎",
+      "pharmacy": "工業会薬局 駅前店",
+      "contact": null,
+      "started_on": null,
+      "ended_on": null,
+      "author": 1
+    }
+  ]
+}

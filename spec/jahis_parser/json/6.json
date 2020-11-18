@@ -1,0 +1,110 @@
+{
+  "version": {
+    "version": "JAHISTC07",
+    "output_type": 1
+  },
+  "patient_info": {
+    "name": "鈴木 太郎",
+    "gender": 1,
+    "birthday": "19580303",
+    "zip_code": null,
+    "address": null,
+    "phone_number": null,
+    "emergency_contact": null,
+    "blood_type": null,
+    "body_weight": null,
+    "name_kana": null
+  },
+  "dispensing_info": [
+    {
+      "dispensed_on": {
+        "date": "20200410",
+        "author": 1
+      },
+      "dispensing_facility": {
+        "name": "医療法人 工業会病院",
+        "prefecture": 13,
+        "score_table": 1,
+        "code": "1234567",
+        "zip_code": null,
+        "address": null,
+        "phone_number": null,
+        "author": 1
+      },
+      "prescription": [
+        {
+          "recipe": [
+            {
+              "number": 1,
+              "medicine": [
+                {
+                  "name": "ｺﾘｵﾊﾟﾝｶﾌﾟｾﾙ5mg",
+                  "dose": 4.0,
+                  "unit": "Ｃ",
+                  "code_type": 2,
+                  "code": "620004992",
+                  "author": 1
+                },
+                {
+                  "name": "ﾌｪﾛﾍﾞﾘﾝ配合錠",
+                  "dose": 4.0,
+                  "unit": "錠",
+                  "code_type": 2,
+                  "code": "620425801",
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": null,
+                "dispensing_quantity": 5,
+                "dispensing_unit": "日分",
+                "dosage_form_code": 1,
+                "code_type": 1,
+                "code": null,
+                "author": 1
+              }
+            },
+            {
+              "number": 2,
+              "medicine": [
+                {
+                  "name": "ｱﾄﾞｿﾙﾋﾞﾝ原末",
+                  "dose": 1.5,
+                  "unit": "g",
+                  "code_type": 2,
+                  "code": "620008284",
+                  "author": 1
+                },
+                {
+                  "name": "(局)ﾀﾝﾅﾙﾋﾞﾝ「ﾎｴｲ」",
+                  "dose": 1.5,
+                  "unit": "g",
+                  "code_type": 2,
+                  "code": "612310013",
+                  "author": 1
+                },
+                {
+                  "name": "ﾚﾍﾞﾆﾝ散",
+                  "dose": 2.0,
+                  "unit": "g",
+                  "code_type": 2,
+                  "code": "620007148",
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": null,
+                "dispensing_quantity": 5,
+                "dispensing_unit": "日分",
+                "dosage_form_code": 1,
+                "code_type": 1,
+                "code": null,
+                "author": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

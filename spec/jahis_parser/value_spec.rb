@@ -120,9 +120,9 @@ RSpec.describe JahisParser::Value::Weight do
     end
 
     context '数値を含まない文字列の場合' do
-      let(:value) { 'ABCDEF' }
-      it 'エラーにならずに0になる' do
-        expect(weight.to_value).to eq 0
+      let(:value) { 'FOO' }
+      it 'エラーにならずにnilになる' do
+        expect(weight.to_value).to eq nil
       end
     end
   end
@@ -134,14 +134,33 @@ RSpec.describe JahisParser::Value::Dose do
     context '正常な数値の文字列の場合' do
       let(:value) { '1' }
       it '数値化されて取得できる' do
-        expect(weight.to_value).to eq 1.0
+        expect(weight.to_value).to eq 1
       end
     end
 
     context '数値を含まない文字列の場合' do
-      let(:value) { 'ABCDEF' }
-      it 'エラーにならずに0になる' do
-        expect(weight.to_value).to eq 0
+      let(:value) { 'FOO' }
+      it 'エラーにならずに nil になる' do
+        expect(weight.to_value).to eq nil
+      end
+    end
+  end
+end
+
+RSpec.describe JahisParser::Value::DispensingQuantity do
+  describe '#new' do
+    let(:weight) { JahisParser::Value::DispensingQuantity.new(value) }
+    context '正常な数値の文字列の場合' do
+      let(:value) { '1' }
+      it '数値化されて取得できる' do
+        expect(weight.to_value).to eq 1
+      end
+    end
+
+    context '数値を含まない文字列の場合' do
+      let(:value) { 'FOO' }
+      it 'エラーにならずに nil になる' do
+        expect(weight.to_value).to eq nil
       end
     end
   end

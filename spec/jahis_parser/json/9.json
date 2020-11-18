@@ -1,0 +1,198 @@
+{
+  "version": {
+    "version": "JAHISTC07",
+    "output_type": 1
+  },
+  "patient_info": {
+    "name": "鈴木 太郎",
+    "gender": 1,
+    "birthday": "19580303",
+    "zip_code": null,
+    "address": null,
+    "phone_number": null,
+    "emergency_contact": null,
+    "blood_type": null,
+    "body_weight": null,
+    "name_kana": null
+  },
+  "dispensing_info": [
+    {
+      "dispensed_on": {
+        "date": "20200410",
+        "author": 1
+      },
+      "dispensing_facility": {
+        "name": "株式会社 工業会薬局 駅前店",
+        "prefecture": 13,
+        "score_table": 4,
+        "code": "1234567",
+        "zip_code": null,
+        "address": null,
+        "phone_number": null,
+        "author": 1
+      },
+      "dispensing_doctor_pharmacist": {
+        "name": "薬剤師 次郎",
+        "contact": null,
+        "author": 1
+      },
+      "prescription_facility": {
+        "name": "医療法人 工業会病院",
+        "prefecture": 13,
+        "score_table": 1,
+        "code": "1234567",
+        "author": 1
+      },
+      "prescription": [
+        {
+          "recipe": [
+            {
+              "number": 1,
+              "medicine": [
+                {
+                  "name": "ﾘﾝﾃﾞﾛﾝ-VG軟膏0.12%",
+                  "dose": 5.0,
+                  "unit": "g",
+                  "code_type": 2,
+                  "code": "662640418",
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": "【患部に塗布】",
+                "dispensing_quantity": 1,
+                "dispensing_unit": "調剤",
+                "dosage_form_code": 5,
+                "code_type": 1,
+                "code": null,
+                "author": 1
+              }
+            },
+            {
+              "number": 2,
+              "medicine": [
+                {
+                  "name": "ﾛｷｿﾆﾝ錠60mg",
+                  "dose": 1.0,
+                  "unit": "錠",
+                  "code_type": 2,
+                  "code": "620098801",
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": "【腰痛時】",
+                "dispensing_quantity": 10,
+                "dispensing_unit": "回分",
+                "dosage_form_code": 3,
+                "code_type": 1,
+                "code": null,
+                "author": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dispensed_on": {
+        "date": "20200407",
+        "author": 1
+      },
+      "dispensing_facility": {
+        "name": "株式会社 工業会薬局 駅前店",
+        "prefecture": 13,
+        "score_table": 4,
+        "code": "1234567",
+        "zip_code": null,
+        "address": null,
+        "phone_number": null,
+        "author": 1
+      },
+      "dispensing_doctor_pharmacist": {
+        "name": "薬剤師 太郎",
+        "contact": null,
+        "author": 1
+      },
+      "prescription_facility": {
+        "name": "医療法人 工業会病院",
+        "prefecture": 13,
+        "score_table": 1,
+        "code": "1234567",
+        "author": 1
+      },
+      "prescription": [
+        {
+          "recipe": [
+            {
+              "number": 1,
+              "medicine": [
+                {
+                  "name": "ｱﾀﾞﾗｰﾄCR錠20mg",
+                  "dose": 1.0,
+                  "unit": "錠",
+                  "code_type": 2,
+                  "code": "610421321",
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": "【分１ 朝食後服用】",
+                "dispensing_quantity": 28,
+                "dispensing_unit": "日分",
+                "dosage_form_code": 1,
+                "code_type": 1,
+                "code": null,
+                "author": 1
+              }
+            },
+            {
+              "number": 2,
+              "medicine": [
+                {
+                  "name": "ﾌｧﾓﾁｼﾞﾝOD錠20mg「ﾄｰﾜ」",
+                  "dose": 2.0,
+                  "unit": "錠",
+                  "code_type": 2,
+                  "code": "621687401",
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": "【分２ 朝夕食後服用】",
+                "dispensing_quantity": 28,
+                "dispensing_unit": "日分",
+                "dosage_form_code": 1,
+                "code_type": 1,
+                "code": null,
+                "author": 1
+              }
+            },
+            {
+              "number": 3,
+              "medicine": [
+                {
+                  "name": "ｼﾝﾊﾞｽﾀﾁﾝ錠10mg",
+                  "dose": 1.0,
+                  "unit": "錠",
+                  "code_type": 2,
+                  "code": "622315500",
+                  "author": 1
+                }
+              ],
+              "dosage_administration": {
+                "name": "【分１ 夕食後服用】",
+                "dispensing_quantity": 28,
+                "dispensing_unit": "日分",
+                "dosage_form_code": 1,
+                "code_type": 1,
+                "code": null,
+                "author": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
